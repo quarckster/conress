@@ -1,0 +1,98 @@
+FROM registry.fedoraproject.org/fedora-minimal:34
+LABEL maintainer="dmisharo@redhat.com"
+
+ENV CYPRESS_HOME=/home/cypress
+
+WORKDIR ${CYPRESS_HOME}
+
+RUN PACKAGES="\
+        alsa-lib \
+        at-spi2-atk \
+        at-spi2-core \
+        atk \
+        avahi-libs \
+        bzip2 \
+        cairo \
+        cairo-gobject \
+        cups-libs \
+        dbus-glib \
+        dbus-libs \
+        expat \
+        fluxbox \
+        fontconfig \
+        freetype \
+        fribidi \
+        gdk-pixbuf2 \
+        graphite2 \
+        gtk3 \
+        harfbuzz \
+        imlib2 \
+        libcloudproviders \
+        libdatrie \
+        libdrm \
+        libepoxy \
+        liberation-fonts \
+        liberation-fonts-common \
+        liberation-mono-fonts \
+        liberation-sans-fonts \
+        liberation-serif-fonts \
+        libfontenc \
+        libglvnd \
+        libglvnd-glx \
+        libICE \
+        libjpeg-turbo \
+        libpng \
+        libSM \
+        libthai \
+        libuv-1 \
+        libwayland-client \
+        libwayland-cursor \
+        libwayland-egl \
+        libwayland-server \
+        libwebp \
+        libX11 \
+        libX11-common \
+        libX11-xcb \
+        libXau \
+        libxcb \
+        libXcomposite \
+        libXcursor \
+        libXdamage \
+        libXdmcp \
+        libXext \
+        libXfixes \
+        libXfont2 \
+        libXft \
+        libXi \
+        libXinerama \
+        libxkbcommon \
+        libxkbfile \
+        libXpm \
+        libXrandr \
+        libXrender \
+        libxshmfence \
+        libXt \
+        mesa-libgbm \
+        nodejs \
+        nodejs-libs \
+        npm \
+        nspr \
+        nss \
+        nss-softokn \
+        nss-softokn-freebl \
+        nss-util \
+        openssl \
+        pango \
+        pixman \
+        tar \
+        tigervnc-server-minimal \
+        unzip \
+        vulkan-loader \
+        wget \
+        xdg-utils \
+        xkbcomp \
+        xkeyboard-config" && \
+    microdnf download -y --archlist=x86_64,noarch ${PACKAGES} && \
+    rpm -Uvh --nodeps *.rpm && \
+    rm -f *.rpm && \
+    microdnf clean all
