@@ -4,7 +4,7 @@ This repository contains Dockerfiles for building a Fedora based container image
 Cypress binary, Google Chrome and Mozilla Firefox browsers as welll as minimia; amount of required
 dependencies.
 
-## Building arguemnts
+## Building arguments
 
 `FIREFOX_VERSION` - desired version of Mozilla Firefox.
 
@@ -12,7 +12,7 @@ dependencies.
 
 `CYPRESS_VERSION` - desired version of Cypress binary.
 
-## Pull the image
+## Tags
 
 You can pull the image from here:
 
@@ -32,5 +32,8 @@ podman run -it --rm -p 5999:5999 --shm-size=2g -w /mnt -v .:/mnt quay.io/redhatq
 startcypress open
 ```
 
-`startcypress` starts and stop `Xvnc`, `fluxbox` and `Cypress` in the right order. It passes all
-arguments to `Cypress`.
+`startcypress` starts and stops `Xvnc`, `fluxbox` and `Cypress` in the right order. It passes all
+provided arguments to `Cypress`.
+
+To interact with the [Test Runner](https://on.cypress.io/test-runner) connect via VNC to `Xvnc`
+server in the container on port `5999`.
