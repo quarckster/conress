@@ -1,7 +1,7 @@
 # Cypress container image
 
 This repository contains Dockerfiles for building a Fedora based container image with installed
-Cypress binary, Google Chrome and Mozilla Firefox browsers as welll as minimia; amount of required
+Cypress binary, Google Chrome and Mozilla Firefox browsers as welll as minimal amount of required
 dependencies.
 
 ## Building arguments
