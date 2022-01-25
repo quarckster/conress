@@ -44,7 +44,7 @@ RUN PACKAGES="\
         libpng \
         libSM \
         libthai \
-        libuv-1 \
+        libuv \
         libwayland-client \
         libwayland-cursor \
         libwayland-egl \
